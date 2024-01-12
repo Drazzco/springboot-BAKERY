@@ -3,6 +3,7 @@ package com.douglas.bakery.view.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,14 +21,12 @@ import com.douglas.bakery.service.ProductService;
 import com.douglas.bakery.shared.ProductRecord;
 import com.douglas.bakery.shared.ResponseRecord;
 
-import lombok.RequiredArgsConstructor;
-
 @RestController
 @RequestMapping("/api/products")
-@RequiredArgsConstructor
 public class ProductController {
 
-    private final ProductService service;
+    @Autowired
+    private ProductService service;
     
     @GetMapping
     public ResponseEntity<Object> findAll()
